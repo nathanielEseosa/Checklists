@@ -23,13 +23,25 @@ class ChecklistViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
 
-        // Configure the cell...
+        let label = cell.viewWithTag(1000) as! UILabel
+
+          if indexPath.row == 0 {
+            label.text = "Walk the dog"
+          } else if indexPath.row == 1 {
+            label.text = "Brush my teeth"
+          } else if indexPath.row == 2 {
+            label.text = "Learn iOS development"
+          } else if indexPath.row == 3 {
+            label.text = "Soccer practice"
+          } else if indexPath.row == 4 {
+            label.text = "Eat ice cream"
+          }
 
         return cell
     }
