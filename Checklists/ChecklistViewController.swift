@@ -8,17 +8,11 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController {
-    let row0text = "Walk the dog"
-    let row1text = "Brush teeth"
-    let row2text = "Learn iOS development"
-    let row3text = "Soccer practice"
-    let row4text = "Eat ice cream"
-    
-    var row0checked = false
-    var row1checked = true
-    var row2checked = true
-    var row3checked = false
-    var row4checked = true
+    let row0text = ChecklistItem()
+    let row1text = ChecklistItem()
+    let row2text = ChecklistItem()
+    let row3text = ChecklistItem()
+    let row4text = ChecklistItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
