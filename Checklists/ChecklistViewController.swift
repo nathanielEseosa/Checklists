@@ -8,91 +8,73 @@
 import UIKit
 
 class ChecklistViewController: UITableViewController {
-    let row0text = ChecklistItem()
-    let row1text = ChecklistItem()
-    let row2text = ChecklistItem()
-    let row3text = ChecklistItem()
-    let row4text = ChecklistItem()
+    
+    var items = [ChecklistItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        let item1 = ChecklistItem()
+        item1.text = "Walk the dog"
+        items.append(item1)
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let item2 = ChecklistItem()
+        item2.text = "Brush my teeth"
+        item2.checked = true
+        items.append(item2)
+        
+        let item3 = ChecklistItem()
+        item3.text = "Learn iOS development"
+        item3.checked = true
+        items.append(item3)
+        
+        let item4 = ChecklistItem()
+        item4.text = "Soccer practice"
+        items.append(item4)
+        
+        let item5 = ChecklistItem()
+        item5.text = "Eat ice cream"
+        items.append(item5)
     }
     
     func configureCheckmark(
-      for cell: UITableViewCell,
-      at indexPath: IndexPath
+        for cell: UITableViewCell,
+        with item: ChecklistItem
     ) {
-      var isChecked = false
-
-      if indexPath.row == 0 {
-        isChecked = row0checked
-      } else if indexPath.row == 1 {
-        isChecked = row1checked
-      } else if indexPath.row == 2 {
-        isChecked = row2checked
-      } else if indexPath.row == 3 {
-        isChecked = row3checked
-      } else if indexPath.row == 4 {
-        isChecked = row4checked
-      }
-
-      if isChecked {
-        cell.accessoryType = .checkmark
-      } else {
-        cell.accessoryType = .none
-      }
+        if item.checked {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
+        items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
         
+        let item = items[indexPath.row]
+        
+        // Why can I reuse this label to create unique values for multiiple cells?
+        // Because a new label object is created after the cellForRowAt method lifecycle ends?
         let label = cell.viewWithTag(1000) as! UILabel
         
-        if indexPath.row == 0 {
-            label.text = row0text
-        } else if indexPath.row == 1 {
-            label.text = row1text
-        } else if indexPath.row == 2 {
-            label.text = row2text
-        } else if indexPath.row == 3 {
-            label.text = row3text
-        } else if indexPath.row == 4 {
-            label.text = row4text
-        }
-        
-        configureCheckmark(for: cell, at: indexPath)
+        label.text = item.text
+        configureCheckmark(for: cell, with: item)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            if indexPath.row == 0 {
-                row0checked.toggle()
-            } else if indexPath.row == 1 {
-                row1checked.toggle()
-            } else if indexPath.row == 2 {
-                row2checked.toggle()
-            } else if indexPath.row == 3 {
-                row3checked.toggle()
-            } else if indexPath.row == 4 {
-                row4checked.toggle()
-            }
-            configureCheckmark(for: cell, at: indexPath)
+            let item = items[indexPath.row]
+            item.checked.toggle()
+            
+            configureCheckmark(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
