@@ -44,11 +44,17 @@
                             <outlet property="delegate" destination="mP3-SU-B1M" id="IdJ-fY-Fs7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklist" id="5aj-Fh-JRG"/>
+                    <navigationItem key="navigationItem" title="Checklist" id="5aj-Fh-JRG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bWn-Iw-DPa">
+                            <connections>
+                                <action selector="addItem" destination="mP3-SU-B1M" id="cFW-iF-qOQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPa-Wp-AAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071.0144927536232" y="-47.544642857142854"/>
+            <point key="canvasLocation" x="1301" y="-83"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vqY-3C-uc7">
