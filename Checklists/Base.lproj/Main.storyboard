@@ -17,14 +17,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="dOm-r8-yzp">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="25.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="25"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dOm-r8-yzp" id="ORs-cN-szg">
-                                    <rect key="frame" x="0.0" y="0.0" width="373.5" height="25.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="373.5" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoE-7e-1pI">
-                                            <rect key="frame" x="5" y="2" width="366.5" height="21.5"/>
+                                            <rect key="frame" x="5" y="2" width="366.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="1301" y="-83"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Item-->
         <scene sceneID="ngh-2M-PJi">
             <objects>
-                <tableViewController id="oS5-C9-9wn" sceneMemberID="viewController">
+                <tableViewController id="oS5-C9-9wn" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Zta-Ay-dEg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,18 @@
                             <outlet property="delegate" destination="oS5-C9-9wn" id="DeP-7x-TFV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="I3N-aZ-5PG"/>
+                    <navigationItem key="navigationItem" title="Add Item" id="I3N-aZ-5PG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="z5K-vH-TiW">
+                            <connections>
+                                <action selector="cancelButton" destination="oS5-C9-9wn" id="Lzs-CI-IoZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dQ3-ec-lCH">
+                            <connections>
+                                <action selector="doneButton" destination="oS5-C9-9wn" id="yRE-gO-E5O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KM4-rP-woh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
